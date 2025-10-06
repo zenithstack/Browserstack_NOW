@@ -18,8 +18,13 @@ TEAM_PARALLELS_MAX_ALLOWED_WEB=0
 TEAM_PARALLELS_MAX_ALLOWED_MOBILE=0
 
 # URL handling
-DEFAULT_TEST_URL="https://bstackdemo.com/"
+DEFAULT_TEST_URL="https://bstackdemo.com"
 CX_TEST_URL="$DEFAULT_TEST_URL"
+
+# Global vars
+APP_URL=""
+APP_PLATFORM=""   # ios | android | all
+
 
 # ===== Error Patterns =====
 WEB_SETUP_ERRORS=("")
@@ -44,11 +49,11 @@ WEB_PLATFORM_TEMPLATES=(
 
 
 MOBILE_TIER1=(
-  "ios|iPhone latest|latest"
-  # "ios|iPhone 15 Pro|17"
-  # "ios|iPhone 16|18"
-  "android|Samsung Galaxy *|*"
-  # "android|Samsung Galaxy S24|14"
+  "ios|iPhone 15|17"
+  "ios|iPhone 15 Pro|17"
+  "ios|iPhone 16|18"
+  "android|Samsung Galaxy S25|15"
+  "android|Samsung Galaxy S24|14"
 )
 
 # Tier 2 – Up to 40 parallels
@@ -185,6 +190,145 @@ MOBILE_TIER4=(
   "android|Xiaomi Redmi Note 9|10"
   "android|Huawei P30|9"
 )
+
+MOBILE_ALL=(
+  # Tier 1
+  "ios|iPhone 15|17"
+  "ios|iPhone 15 Pro|17"
+  "ios|iPhone 16|18"
+  "android|Samsung Galaxy S25|15"
+  "android|Samsung Galaxy S24|14"
+
+  # Tier 2
+  "ios|iPhone 14 Pro|16"
+  "ios|iPhone 14|16"
+  "ios|iPad Air 13 2025|18"
+  "android|Samsung Galaxy S23|13"
+  "android|Samsung Galaxy S22|12"
+  "android|Samsung Galaxy S21|11"
+  "android|Samsung Galaxy Tab S10 Plus|15"
+
+  # Tier 3
+  "ios|iPhone 13 Pro Max|15"
+  "ios|iPhone 13|15"
+  "ios|iPhone 12 Pro|14"
+  "ios|iPhone 12 Pro|17"
+  "ios|iPhone 12|17"
+  "ios|iPhone 12|14"
+  "ios|iPhone 12 Pro Max|16"
+  "ios|iPhone 13 Pro|15"
+  "ios|iPhone 13 Mini|15"
+  "ios|iPhone 16 Pro|18"
+  "ios|iPad 9th|15"
+  "ios|iPad Pro 12.9 2020|14"
+  "ios|iPad Pro 12.9 2020|16"
+  "ios|iPad 8th|16"
+  "android|Samsung Galaxy S22 Ultra|12"
+  "android|Samsung Galaxy S21|12"
+  "android|Samsung Galaxy S21 Ultra|11"
+  "android|Samsung Galaxy S20|10"
+  "android|Samsung Galaxy M32|11"
+  "android|Samsung Galaxy Note 20|10"
+  "android|Samsung Galaxy S10|9"
+  "android|Samsung Galaxy Note 9|8"
+  "android|Samsung Galaxy Tab S8|12"
+  "android|Google Pixel 9|15"
+  "android|Google Pixel 6 Pro|13"
+  "android|Google Pixel 8|14"
+  "android|Google Pixel 7|13"
+  "android|Google Pixel 6|12"
+  "android|Vivo Y21|11"
+  "android|Vivo Y50|10"
+  "android|Oppo Reno 6|11"
+
+  # Tier 4
+  "ios|iPhone 15 Pro Max|17"
+  "ios|iPhone 15 Pro Max|26"
+  "ios|iPhone 15|26"
+  "ios|iPhone 15 Plus|17"
+  "ios|iPhone 14 Pro|26"
+  "ios|iPhone 14|18"
+  "ios|iPhone 14|26"
+  "ios|iPhone 13 Pro Max|18"
+  "ios|iPhone 13|16"
+  "ios|iPhone 13|17"
+  "ios|iPhone 13|18"
+  "ios|iPhone 12 Pro|18"
+  "ios|iPhone 14 Pro Max|16"
+  "ios|iPhone 14 Plus|16"
+  "ios|iPhone 11|13"
+  "ios|iPhone 8|11"
+  "ios|iPhone 7|10"
+  "ios|iPhone 17 Pro Max|26"
+  "ios|iPhone 17 Pro|26"
+  "ios|iPhone 17 Air|26"
+  "ios|iPhone 17|26"
+  "ios|iPhone 16e|18"
+  "ios|iPhone 16 Pro Max|18"
+  "ios|iPhone 16 Plus|18"
+  "ios|iPhone SE 2020|16"
+  "ios|iPhone SE 2022|15"
+  "ios|iPad Air 4|14"
+  "ios|iPad 9th|18"
+  "ios|iPad Air 5|26"
+  "ios|iPad Pro 11 2021|18"
+  "ios|iPad Pro 13 2024|17"
+  "ios|iPad Pro 12.9 2021|14"
+  "ios|iPad Pro 12.9 2021|17"
+  "ios|iPad Pro 11 2024|17"
+  "ios|iPad Air 6|17"
+  "ios|iPad Pro 12.9 2022|16"
+  "ios|iPad Pro 11 2022|16"
+  "ios|iPad 10th|16"
+  "ios|iPad Air 13 2025|26"
+  "ios|iPad Pro 11 2020|13"
+  "ios|iPad Pro 11 2020|16"
+  "ios|iPad 8th|14"
+  "ios|iPad Mini 2021|15"
+  "ios|iPad Pro 12.9 2018|12"
+  "ios|iPad 6th|11"
+  "android|Samsung Galaxy S23 Ultra|13"
+  "android|Samsung Galaxy S22 Plus|12"
+  "android|Samsung Galaxy S21 Plus|11"
+  "android|Samsung Galaxy S20 Ultra|10"
+  "android|Samsung Galaxy S25 Ultra|15"
+  "android|Samsung Galaxy S24 Ultra|14"
+  "android|Samsung Galaxy M52|11"
+  "android|Samsung Galaxy A52|11"
+  "android|Samsung Galaxy A51|10"
+  "android|Samsung Galaxy A11|10"
+  "android|Samsung Galaxy A10|9"
+  "android|Samsung Galaxy Tab A9 Plus|14"
+  "android|Samsung Galaxy Tab S9|13"
+  "android|Samsung Galaxy Tab S7|10"
+  "android|Samsung Galaxy Tab S7|11"
+  "android|Samsung Galaxy Tab S6|9"
+  "android|Google Pixel 9|16"
+  "android|Google Pixel 10 Pro XL|16"
+  "android|Google Pixel 10 Pro|16"
+  "android|Google Pixel 10|16"
+  "android|Google Pixel 9 Pro XL|15"
+  "android|Google Pixel 9 Pro|15"
+  "android|Google Pixel 6 Pro|12"
+  "android|Google Pixel 6 Pro|15"
+  "android|Google Pixel 8 Pro|14"
+  "android|Google Pixel 7 Pro|13"
+  "android|Google Pixel 5|11"
+  "android|OnePlus 13R|15"
+  "android|OnePlus 12R|14"
+  "android|OnePlus 11R|13"
+  "android|OnePlus 9|11"
+  "android|OnePlus 8|10"
+  "android|Motorola Moto G71 5G|11"
+  "android|Motorola Moto G9 Play|10"
+  "android|Vivo V21|11"
+  "android|Oppo A96|11"
+  "android|Oppo Reno 3 Pro|10"
+  "android|Xiaomi Redmi Note 11|11"
+  "android|Xiaomi Redmi Note 9|10"
+  "android|Huawei P30|9"
+)
+
 
 
 
@@ -477,87 +621,125 @@ generate_web_platforms_yaml() {
 # }
 
 
-# Global vars
-APP_URL=""
-APP_PLATFORM=""   # ios | android | all
 
-ask_and_upload_app() {
-  APP_FILE_PATH=$(osascript -e 'POSIX path of (choose file with prompt "📱 Please select your .apk or .ipa app file to upload to BrowserStack")')
+# ask_and_upload_app() {
+#   APP_FILE_PATH=$(osascript -e 'POSIX path of (choose file with prompt "📱 Please select your .apk or .ipa app file to upload to BrowserStack")')
 
-  if [ -z "$APP_FILE_PATH" ]; then
-    log_msg_to "⚠️ No app selected. Using default sample app: bs://sample.app" "$GLOBAL"
-    APP_URL="bs://sample.app"
-    APP_PLATFORM="all"
-    return
-  fi
+#   if [ -z "$APP_FILE_PATH" ]; then
+#     log_msg_to "⚠️ No app selected. Using default sample app: bs://sample.app" "$GLOBAL"
+#     APP_URL="bs://sample.app"
+#     APP_PLATFORM="all"
+#     return
+#   fi
 
-  # Detect platform
-  if [[ "$APP_FILE_PATH" == *.apk ]]; then
-    APP_PLATFORM="android"
-  elif [[ "$APP_FILE_PATH" == *.ipa ]]; then
-    APP_PLATFORM="ios"
-  else
-    log_msg_to "❌ Unsupported file type. Only .apk or .ipa allowed." "$GLOBAL"
-    exit 1
-  fi
+#   # Detect platform
+#   if [[ "$APP_FILE_PATH" == *.apk ]]; then
+#     APP_PLATFORM="android"
+#   elif [[ "$APP_FILE_PATH" == *.ipa ]]; then
+#     APP_PLATFORM="ios"
+#   else
+#     log_msg_to "❌ Unsupported file type. Only .apk or .ipa allowed." "$GLOBAL"
+#     exit 1
+#   fi
 
-  # Upload app
-  log_msg_to "⬆️ Uploading $APP_FILE_PATH to BrowserStack..." "$GLOBAL"
-  UPLOAD_RESPONSE=$(curl -s -u "$BROWSERSTACK_USERNAME:$BROWSERSTACK_ACCESS_KEY" \
-    -X POST "https://api-cloud.browserstack.com/app-automate/upload" \
-    -F "file=@$APP_FILE_PATH")
+#   # Upload app
+#   log_msg_to "⬆️ Uploading $APP_FILE_PATH to BrowserStack..." "$GLOBAL"
+#   UPLOAD_RESPONSE=$(curl -s -u "$BROWSERSTACK_USERNAME:$BROWSERSTACK_ACCESS_KEY" \
+#     -X POST "https://api-cloud.browserstack.com/app-automate/upload" \
+#     -F "file=@$APP_FILE_PATH")
 
-  APP_URL=$(echo "$UPLOAD_RESPONSE" | grep -o '"app_url":"[^"]*' | cut -d'"' -f4)
+#   APP_URL=$(echo "$UPLOAD_RESPONSE" | grep -o '"app_url":"[^"]*' | cut -d'"' -f4)
 
-  if [ -z "$APP_URL" ]; then
-    log_msg_to "❌ Upload failed. Response: $UPLOAD_RESPONSE" "$GLOBAL"
-    exit 1
-  fi
+#   if [ -z "$APP_URL" ]; then
+#     log_msg_to "❌ Upload failed. Response: $UPLOAD_RESPONSE" "$GLOBAL"
+#     exit 1
+#   fi
 
-  log_msg_to "✅ App uploaded successfully: $APP_URL" "$GLOBAL"
-}
+#   log_msg_to "✅ App uploaded successfully: $APP_URL" "$GLOBAL"
+# }
+
+# generate_mobile_platforms_yaml() {
+#   local max_total_parallels=$1
+#   local yaml=""
+#   local count=0
+
+#   # Select tier based on parallel count
+#   if (( max_total_parallels >= 80 )); then
+#     devices=("${MOBILE_TIER1[@]}")
+#   elif (( max_total_parallels >= 40 )); then
+#     devices=("${MOBILE_TIER2[@]}")
+#   elif (( max_total_parallels >= 16 )); then
+#     devices=("${MOBILE_TIER3[@]}")
+#   else
+#     devices=("${MOBILE_TIER4[@]}")
+#   fi
+
+#   # Filter devices by platform and limit by max_total_parallels
+#   for template in "${devices[@]}"; do
+#     IFS="|" read -r platformName deviceName platformVersion <<< "$template"
+
+#     # Skip if platform mismatch
+#     if [[ "$APP_PLATFORM" == "ios" && "$platformName" != "ios" ]]; then
+#       continue
+#     fi
+#     if [[ "$APP_PLATFORM" == "android" && "$platformName" != "android" ]]; then
+#       continue
+#     fi
+
+#     yaml+="  - platformName: $platformName
+#     deviceName: $deviceName
+#     platformVersion: ${platformVersion}.0
+# "
+
+#     count=$((count + 1))
+#     if (( count >= max_total_parallels )); then
+#       break
+#     fi
+#   done
+
+#   echo "$yaml"
+# }
 
 generate_mobile_platforms_yaml() {
   local max_total_parallels=$1
+  local max=$(echo "$max_total_parallels * $PARALLEL_PERCENTAGE" | bc | cut -d'.' -f1)
+
+  # fallback if bc result is empty or zero
+  if [ -z "$max" ] || [ "$max" -lt 1 ]; then
+    max=1
+  fi
+
   local yaml=""
   local count=0
 
-  # Select tier based on parallel count
-  if (( max_total_parallels >= 80 )); then
-    devices=("${MOBILE_TIER1[@]}")
-  elif (( max_total_parallels >= 40 )); then
-    devices=("${MOBILE_TIER2[@]}")
-  elif (( max_total_parallels >= 16 )); then
-    devices=("${MOBILE_TIER3[@]}")
-  else
-    devices=("${MOBILE_TIER4[@]}")
-  fi
-
-  # Filter devices by platform and limit by max_total_parallels
-  for template in "${devices[@]}"; do
+  for template in "${MOBILE_ALL[@]}"; do
     IFS="|" read -r platformName deviceName platformVersion <<< "$template"
 
-    # Skip if platform mismatch
-    if [[ "$APP_PLATFORM" == "ios" && "$platformName" != "ios" ]]; then
-      continue
-    fi
-    if [[ "$APP_PLATFORM" == "android" && "$platformName" != "android" ]]; then
-      continue
+    # Apply platform filter
+    if [ -n "$APP_PLATFORM" ]; then
+      if [[ "$APP_PLATFORM" == "ios" && "$platformName" != "ios" ]]; then
+        continue
+      fi
+      if [[ "$APP_PLATFORM" == "android" && "$platformName" != "android" ]]; then
+        continue
+      fi
     fi
 
     yaml+="  - platformName: $platformName
     deviceName: $deviceName
-    platformVersion: ${platformVersion}.0
+    platformVersion: '${platformVersion}.0'
 "
-
     count=$((count + 1))
-    if (( count >= max_total_parallels )); then
-      break
+    if [ "$count" -ge "$max" ]; then
+      echo "$yaml"
+      return
     fi
   done
 
   echo "$yaml"
 }
+
+
 
 
 
@@ -736,7 +918,7 @@ setup_web_java() {
   export BROWSERSTACK_CONFIG_FILE="src/test/resources/conf/capabilities/bstack-parallel.yml"
   # echo "$(pwd)"
   # echo "here i start"
-  sed -i.bak "s|<CX_TEST_URL>|$CX_TEST_URL|g" src/test/java/com/browserstack/test/suites/TestBase.java
+  sed -i.bak "s|https://bstackdemo.com|$CX_TEST_URL|g" src/test/java/com/browserstack/test/suites/TestBase.java
   # echo "here i starting"
 
 
@@ -773,7 +955,8 @@ EOF
   log_msg_to "🚀 Running 'mvn clean test -P bstack-parallel -Dtest=OrderTest'" "$GLOBAL"
   mvn clean test -P bstack-parallel -Dtest=OrderTest >> "$log_file" 2>&1 || true
 
-
+  
+  cd "$WORKSPACE_DIR/$PROJECT_FOLDER"
   return 0
 }
 
